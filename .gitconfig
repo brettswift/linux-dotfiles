@@ -1,0 +1,53 @@
+[hub]
+	username = brettswift
+	oauthtoken = 5d391e55cd8b4c05e55de7c4fb01836a83e7d79e
+[user]
+	email = brettswift@gmail.com
+	name = Brett Swift
+
+[color]
+	ui = true
+[alias]
+	c = commit
+	co = checkout
+	st = status
+	gl = log --pretty=format:'%h, %ar, %cn %s'
+	lg1 = log --graph --all --format=format:'%C(magenta)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)â€” %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg2 = log --graph --all --format=format:'%C(magenta)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)â€” %an%C(reset)' --abbrev-commit
+	lgd = log --graph --all --format=format:'%C(magenta)%h%C(reset) - %C(bold green)(%aD)%C(reset) %C(white)%s%C(reset) %C(bold white)â€” %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lgb = log --graph       --format=format:'%C(magenta)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)â€” %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+	lg = !git lg1
+	b = branch
+	r = !git remote -v
+	gl = log
+	oldest-ancestor = !zsh -c 'diff --old-line-format='' --new-line-format='' <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | head -1' -
+        delete-merged-branches = !git branch --merged master | grep -v "master" | xargs -n 1 git branch -d
+	#create-pull-request = !sh -c 'stash pull-request $0'
+	prune-remotes = !git remote prune $(git remote | tr \"\\n\" \" \")
+[merge]
+	tool = kdiff3
+[diff]
+        tool = kdiff3 
+	#tool = opendiff
+	#tool = p4merge
+[core]
+	excludesfile = /Users/bswift/.gitignore_global
+	editor = /usr/bin/vim
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[difftool]
+        prompt = false
+        keepbackup = false
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[mergetool "p4merge"]
+	path = /opt/boxen/bin/p4merge 
+[mergetool "kidff3"]
+	trustExitCode = false
+[mergetool]
+        keepbackup = false
+
+[fetch]
+prune = true
