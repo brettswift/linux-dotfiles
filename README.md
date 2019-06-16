@@ -29,3 +29,8 @@ git config --bool core.bare true
 
 ```
 2. the alias in the .zshrc file should be there already
+	* the next command will fix this
+3. dotfiles pull origin master
+
+## TODO
+** ymmv on setup.  Has not yet been tested on a new install (or docker ubuntu image.. )
