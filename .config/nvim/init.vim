@@ -108,6 +108,15 @@ command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " =================================================
+" UtilSnips
+" =================================================
+let g:UltiSnipsExpandTrigger='<Nop>'
+let g:UltiSnipsJumpForwardTrigger = '<TAB>'
+let g:UltiSnipsJumpBackwardTrigger = '<S-TAB>'
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+" =================================================
 " NERD
 " =================================================
 let g:NERDSpaceDelims = 1
