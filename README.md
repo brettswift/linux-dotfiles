@@ -21,8 +21,8 @@ echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'"
 ```
 hub clone brettswift/linux-dotfiles 
 cd linux-dotfiles
-mv .git ../dotfiles 
-cd ..
+mv .git ~/dotfiles 
+cd .. 
 rm -fr linux-dotfiles
 cd ~/dotfiles
 git config --bool core.bare true
