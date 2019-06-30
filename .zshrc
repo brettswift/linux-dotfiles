@@ -103,3 +103,4 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias dotfiles='/usr/bin/git --git-dir=/home/bswift/dotfiles/ --work-tree=/home/bswift'
+alias dropbox='python3 /usr/local/bin/dropbox.py'
