@@ -9,8 +9,7 @@ Initially set up like this:
 ```
 git init --bare $HOME/dotfiles
 echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
-# Optional, if you don't want to see untracked files 
-#dotfiles config --local status.showUntrackedFiles no
+dotfiles config --local status.showUntrackedFiles no
 ```
 
 # Cloning
@@ -26,6 +25,9 @@ cd ..
 rm -fr linux-dotfiles
 cd ~/dotfiles
 git config --bool core.bare true
+echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'" >> ~/.zshrc
+. ~/.zshrc
+dotfiles config --local status.showUntrackedFiles no
 
 ```
 2. dotfiles pull origin master
