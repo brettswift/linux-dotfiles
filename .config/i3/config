@@ -5,8 +5,13 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# font-awesome icons that might be useful.
+#    figher jet
+#   headphones mic
+# 
 # i3 config file (v4)
-#
+# 
+#   ninja
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -103,8 +108,8 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1_terminals"
 set $ws2 "2_browsers"
-set $ws3 "3_code"
-set $ws4 "4_"
+set $ws3 "3_"
+set $ws4 "4_ "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -195,9 +200,12 @@ exec gnome-terminal
 exec_always feh --bg-scale /home/bswift/Pictures/wallpaper/i3-wallpaper.jpg
 
 assign [class="gnome-terminal"] $ws1
+
 assign [class="Chromium-browser"] $ws2
 assign [class="Darktable"] $ws3
 assign [class="Code"] $ws3
+assign [class="Krita"] $ws3
+
 assign [class="Spotify"] $ws4
 
 # Custom borders
