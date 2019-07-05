@@ -177,7 +177,7 @@ bar {
 
 	#status_command python3 /home/bswift/.config/i3/bs-status.py
 
-	font pango:Inconsolata-dz for Powerline 10
+	font pango:Inconsolata-dz for Powerline 9
 	status_command python3 ~/.config/i3/i3pystatus.conf
 
 }
