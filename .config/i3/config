@@ -192,6 +192,9 @@ bar {
 bindsym $mod+Shift+x exec $HOME/.config/i3/scripts/lock.sh
 exec xautolock -time 15 -locker '$HOME/.config/i3/scripts/lock.sh' & 
 
+# Set a work time goal!
+bindsym $mod+Shift+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && $HOME/.config/i3/scripts/take-a-break.sh
+
 # start on login
 
 exec chromium-browser
