@@ -182,7 +182,7 @@ bar {
 
 	#status_command python3 /home/bswift/.config/i3/bs-status.py
 
-	font pango:Inconsolata-dz for Powerline 9
+	font pango:Inconsolata-dz for Powerline 17
 	status_command python3 ~/.config/i3/i3pystatus.conf
 
 }
@@ -190,7 +190,7 @@ bar {
 
 #bindsym $mod+shift+x exec i3lock
 bindsym $mod+Shift+x exec $HOME/.config/i3/scripts/lock.sh
-exec xautolock -time 15 -locker '$HOME/.config/i3/scripts/lock.sh' & 
+exec xautolock -time 15 -locker '$HOME/.config/i3/scripts/lock.sh' &
 
 # Set a work time goal!
 bindsym $mod+Shift+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && $HOME/.config/i3/scripts/take-a-break.sh
