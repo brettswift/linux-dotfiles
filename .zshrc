@@ -103,4 +103,6 @@ alias scratch='mkdir -p ~/.scratch; pushd ~/.scratch; nvim scratchfile; popd'
 alias pop='cd ~/src/popos_setup'
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+source ~/.config/aliasrc
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

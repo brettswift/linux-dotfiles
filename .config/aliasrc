@@ -1,0 +1,69 @@
+# fuzzy open a file in nvim - local dir
+GREP_EXCLUDED_DIRS='--exclude-dir={.git,node_modules,build,out,cdk.out,dist}'
+o() { du  -a | grep -v node | grep ${GREP_EXCLUDED_DIRS} | awk '{print $2}' | fzf | xargs -t nvim }
+config() { du  -a ~/.config ~/.zshrc ~/.aws ~/.gitconfig | grep -v node | grep -v git | awk '{print $2}' | fzf --preview 'bat --color=always {}' | xargs -t nvim }
+op() { du  -a ~/src | grep -v node | grep -v git | awk '{print $2}' | fzf | xargs -t nvim }
+
+
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fbr() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# fshow - git commit browser
+fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}
+
+
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+fsrc() {
+	DIR=`find ~/src -maxdepth 3  -not -path "*node_modules*" -not -path "*.git*" -type d -print 2> /dev/null | fzf-tmux` \
+    && cd "$DIR"
+}
+
+alias ls='ls -FG' #I like color
+alias ll='ls -lFhG'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias c='clear &'
+
+alias dogource='gource -s .1 --auto-skip-seconds 1 --file-idle-time 0 --max-file-lag 20 --hide filenames,dirnames'
+
+alias flush_dns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed'
+
+alias delete_merged_git_branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
+
+alias src='cd ~/src'
+
+alias flash='tput bel' #make terminal screen flash
+
+# Examples https://github.com/justone/dockviz
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
+#function send_pushbullet_notification(){
+#  NOTIFY="curl -k --header 'Authorization: Bearer v1zUVfPeLEveoY8suYABuu9WmuZUDhItndujC7jkt9OgK' -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{\"type\": \"note\", \"title\": \"$1\", \"body\": \"Packa...\"}'"
+#  eval $NOTIFY
+#}
+#alias push=send_pushbullet_notification #alias allows the function to be refreshed without closing iTerm2
+
+alias audio_reset="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
