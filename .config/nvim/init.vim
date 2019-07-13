@@ -30,7 +30,10 @@ let g:coc_global_extensions = [
 	\ 'coc-java'
 \ ]
 
-" Show all diagnostics
+" Disable mouse clicking, leave scrolling.
+set mouse=
+
+"Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>

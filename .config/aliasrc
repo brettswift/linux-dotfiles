@@ -1,8 +1,16 @@
+
+export FZF_DEFAULT_OPTS='--height 50% --reverse --border'
+
+export EXCLUDE_DIRS='node_modules|bin|lib|cdk.out|.git'
 # fuzzy open a file in nvim - local dir
-GREP_EXCLUDED_DIRS='--exclude-dir={.git,node_modules,build,out,cdk.out,dist}'
-o() { du  -a | grep -v node | grep ${GREP_EXCLUDED_DIRS} | awk '{print $2}' | fzf | xargs -t nvim }
-config() { du  -a ~/.config ~/.zshrc ~/.aws ~/.gitconfig | grep -v node | grep -v git | awk '{print $2}' | fzf --preview 'bat --color=always {}' | xargs -t nvim }
-op() { du  -a ~/src | grep -v node | grep -v git | awk '{print $2}' | fzf | xargs -t nvim }
+# --exclude-dir={.git,node_modules,build,out,cdk.out,dist}
+# open in nvim
+o() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf | xargs -r -t nvim }
+
+# open any project from the src directory
+op() { du  -a ~/src | grep -v node | grep -v git | awk '{print $2}' | fzf | xargs -r -t nvim }
+# open any config file
+config() { du  -a ~/.config ~/.zshrc ~/.aws ~/.gitconfig | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --preview 'bat --color=always {}' | xargs -r -t nvim }
 
 
 # fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
@@ -36,7 +44,7 @@ fd() {
 }
 
 fsrc() {
-	DIR=`find ~/src -maxdepth 3  -not -path "*node_modules*" -not -path "*.git*" -type d -print 2> /dev/null | fzf-tmux` \
+	DIR=`find ~/src -maxdepth 3 -not -path "*node_modules*" -not -path "*bin*" -not -path "*lib*" -not -path "*cdk.out*" -not -path "*.git*" -type d -print 2> /dev/null | fzf-tmux --height 40% --reverse --border` \
     && cd "$DIR"
 }
 
@@ -48,8 +56,6 @@ alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
 alias c='clear &'
 
 alias dogource='gource -s .1 --auto-skip-seconds 1 --file-idle-time 0 --max-file-lag 20 --hide filenames,dirnames'
-
-alias flush_dns='sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed'
 
 alias delete_merged_git_branches='git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d'
 
@@ -65,5 +71,3 @@ alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock 
 #  eval $NOTIFY
 #}
 #alias push=send_pushbullet_notification #alias allows the function to be refreshed without closing iTerm2
-
-alias audio_reset="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
