@@ -1,0 +1,26 @@
+# this ignore file is for the dotfiles repo
+# leave this in the home directory
+
+dotfiles
+go
+Dropbox
+.dropbox*
+Pictures
+Downloads
+Documents
+*cache*
+*log*
+.vscode
+
+.vim/plugged
+
+.mozilla
+
+.local
+.fonts
+
+*node_modules*
+
+.config/chromium
+.config/Code
+
