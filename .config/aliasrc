@@ -1,7 +1,7 @@
 
 export FZF_DEFAULT_OPTS='--height 50% --reverse --border'
 
-export EXCLUDE_DIRS='node_modules|bin|lib|cdk.out|.git'
+export EXCLUDE_DIRS='node_modules|cdk.out|.git'
 # fuzzy open a file in nvim - local dir
 # --exclude-dir={.git,node_modules,build,out,cdk.out,dist}
 # open in nvim

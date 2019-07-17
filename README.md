@@ -34,3 +34,9 @@ dotfiles config --local status.showUntrackedFiles no
 
 ## TODO
 ** ymmv on setup.  Has not yet been tested on a new install (or docker ubuntu image.. )
+
+### Information
+
+* Some themes were installed via `bash -c  "$(wget -qO- https://git.io/vQgMr)"`
+	* "Oceanic Next" :)
+
