@@ -66,5 +66,8 @@ set completeopt-=preview
 
 " Theme"
 set background=dark
-colorscheme solarized8_flat
+"colorscheme solarized8_flat
 "colorscheme dracula
+
+syntax enable
+colorscheme OceanicNext
