@@ -130,6 +130,9 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 augroup nerdtreegroup
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup end
+" When opening a file from another tree - set that tree as the nerd tree root
+autocmd BufEnter * lcd %:p:h
+
 " ===============================================================
 " Airline
 " ===============================================================
@@ -154,3 +157,17 @@ let g:ale_fix_on_save = 1
 let g:ale_set_baloons = 1
 
 :call extend(g:ale_fixers, {'*': ['remove_trailing_lines', 'trim_whitespace']})
+
+
+" ===============================================================
+" DevIcons Config
+" ===============================================================
+" loading the plugin
+let g:webdevicons_enable = 1
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+" ctrlp glyphs
+let g:webdevicons_enable_ctrlp = 1
+
+
+

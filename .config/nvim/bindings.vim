@@ -1,5 +1,5 @@
-" ===============================================================
-" Keyboard Config
+"
+
 " ===============================================================
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -8,9 +8,9 @@ let g:mapleader = ' '
 "auto indent for brackets
 inoremap {<CR> {<CR>}<Esc>O
 " easier write
-nmap <leader>w :w!<cr>
+"nmap <leader>w :w!<cr>
 " easier quit
-nmap <leader>q :q<cr>
+"nmap <leader>q :q<cr>
 
 "" Split
 noremap <Leader>h :<C-u>split<CR>
@@ -38,7 +38,10 @@ nnoremap <S-Tab> gT
 nnoremap <silent> <C-t> :tabnew<CR>
 
 "" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+"nnoremap <leader>. :lcd %:p:h<CR>
+nnoremap <leader>. :NERDTreeFind<cr>
+"" Focus Nerd Tree
+nmap <leader>w :NERDTreeFocus<cr>
 
 "" Opens an edit command with the path of the currently edited file filled in
 noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>

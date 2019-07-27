@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 "Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'mhartington/oceanic-next'
+"Plug 'mhartington/oceanic-next'
+Plug 'brettswift/oceanic-next'
 Plug 'lifepillar/vim-solarized8'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -20,6 +21,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ryanoasis/vim-devicons'
 
 " typescript autocomplete
 Plug 'HerringtonDarkholme/yats.vim'

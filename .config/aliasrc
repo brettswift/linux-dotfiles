@@ -5,7 +5,10 @@ export EXCLUDE_DIRS='node_modules|cdk.out|.git'
 # fuzzy open a file in nvim - local dir
 # --exclude-dir={.git,node_modules,build,out,cdk.out,dist}
 # open in nvim
-o() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf | xargs -r -t nvim }
+o() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --preview-window 'right:60%' | xargs -r -t nvim }
+
+# preview files as big as possible
+prev() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --preview 'bat --color=always {}' --preview-window 'right:60%' }
 
 # open any project from the src directory
 op() { du  -a ~/src | grep -v node | grep -v git | awk '{print $2}' | fzf | xargs -r -t nvim }
