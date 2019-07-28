@@ -131,7 +131,7 @@ augroup nerdtreegroup
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 augroup end
 " When opening a file from another tree - set that tree as the nerd tree root
-autocmd BufEnter * lcd %:p:h
+" autocmd BufEnter * lcd %:p:h " this needs to use the git root not subfolder
 
 " ===============================================================
 " Airline
