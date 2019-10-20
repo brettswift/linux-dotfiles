@@ -1,6 +1,4 @@
 
-export FZF_DEFAULT_OPTS='--height 50% --reverse --border'
-
 export EXCLUDE_DIRS='node_modules|cdk.out|.git'
 # fuzzy open a file in nvim - local dir
 # --exclude-dir={.git,node_modules,build,out,cdk.out,dist}
@@ -8,7 +6,7 @@ export EXCLUDE_DIRS='node_modules|cdk.out|.git'
 o() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --preview-window 'right:60%' | xargs -r -t nvim }
 
 # preview files as big as possible
-prev() { du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --preview 'bat --color=always {}' --preview-window 'right:60%' }
+prev() { clear; du -a | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --height 100% --preview 'bat --color=always {}' --preview-window 'right:60%' }
 
 # open any project from the src directory
 op() { du  -a ~/src | grep -v node | grep -v git | awk '{print $2}' | fzf | xargs -r -t nvim }
@@ -67,6 +65,8 @@ alias flash='tput bel' #make terminal screen flash
 
 # Examples https://github.com/justone/dockviz
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
+
+alias screensaver_off="xset s off;  xset -dpms"
 
 #function send_pushbullet_notification(){
 #  NOTIFY="curl -k --header 'Authorization: Bearer v1zUVfPeLEveoY8suYABuu9WmuZUDhItndujC7jkt9OgK' -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{\"type\": \"note\", \"title\": \"$1\", \"body\": \"Packa...\"}'"

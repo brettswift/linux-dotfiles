@@ -98,7 +98,7 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# focus theparent container
 bindsym $mod+a focus parent
 
 # focus the child container
@@ -106,16 +106,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1_terminals"
-set $ws2 "2_browsers"
-set $ws3 "3_"
-set $ws4 "4_ "
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "[1] terminal"
+set $ws2 "[2] browse"
+set $ws3 "[3] "
+set $ws4 "[4]  "
+set $ws5 "[5] "
+set $ws6 "[6] "
+set $ws7 "[7] Chrome"
+set $ws8 "[8] "
+set $ws9 "[9] "
+set $ws10 "10 "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -157,7 +157,7 @@ mode "resize" {
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
         bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppj
+        bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
@@ -203,6 +203,9 @@ exec gnome-terminal
 # testing, I think dpi is good with .Xresources and the profile config
 #exec xrandr --dpi 220
 
+# load XResources here.  The default file name has changed so i3 will only load it. 
+exec xrdb .Xresources_for_i3
+
 exec_always feh --bg-scale /home/bswift/Pictures/wallpaper/i3-wallpaper.jpg
 
 assign [class="gnome-terminal"] $ws1
@@ -212,7 +215,11 @@ assign [class="Darktable"] $ws3
 assign [class="Code"] $ws3
 assign [class="Krita"] $ws3
 
-assign [class="Spotify"] $ws4
+# both of these are broken
+# assign [class="Spotify Premium"] $ws4
+#for_window [class="Spotify Premium"] move to workspace $ws4
+
+assign [class="Google-chrome"] $ws7
 
 # Custom borders
 
