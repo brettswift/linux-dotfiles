@@ -48,6 +48,8 @@ fsrc() {
     && cd "$DIR"
 }
 
+alias help='bat ~/.config/help.md'
+
 alias ls='ls -FG' #I like color
 alias ll='ls -lFhG'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
