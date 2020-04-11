@@ -193,11 +193,11 @@ bindsym $mod+Shift+x exec $HOME/.config/i3/scripts/lock.sh
 exec xautolock -time 15 -locker '$HOME/.config/i3/scripts/lock.sh' &
 
 # Set a work time goal!
-bindsym $mod+Shift+p exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && $HOME/.config/i3/scripts/take-a-break.sh
+bindsym $mod+Shift+t exec notify-send --icon=gtk-info Pomodoro "Focus for 25 minutes" && sleep 2500 && $HOME/.config/i3/scripts/take-a-break.sh
 
 # start on login
 
-exec chromium-browser
+exec chromium
 exec gnome-terminal
 
 # testing, I think dpi is good with .Xresources and the profile config
@@ -210,7 +210,7 @@ exec_always feh --bg-scale /home/bswift/Pictures/wallpaper/i3-wallpaper.jpg
 
 assign [class="gnome-terminal"] $ws1
 
-assign [class="Chromium-browser"] $ws2
+assign [class="Chromium"] $ws2
 assign [class="Darktable"] $ws3
 assign [class="Code"] $ws3
 assign [class="Krita"] $ws3

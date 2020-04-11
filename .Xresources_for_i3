@@ -1,5 +1,5 @@
 Xft.dpi: 192 
-Xcursor.size: 256
+Xcursor.size: 64
 
 URxvt.font: xft:FiraMono-Regular:size=10
 

@@ -48,6 +48,9 @@ fsrc() {
     && cd "$DIR"
 }
 
+fcp() { du -a ~/src | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --height 80% --preview 'bat --color=always {}' --preview-window 'right:40%' | xargs cp -t ./ }
+
+
 alias help='bat ~/.config/help.md'
 
 alias ls='ls -FG' #I like color
@@ -70,6 +73,7 @@ alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock 
 
 alias screensaver_off="xset s off;  xset -dpms"
 
+alias wifi=nmtui
 #function send_pushbullet_notification(){
 #  NOTIFY="curl -k --header 'Authorization: Bearer v1zUVfPeLEveoY8suYABuu9WmuZUDhItndujC7jkt9OgK' -X POST https://api.pushbullet.com/v2/pushes --header 'Content-Type: application/json' --data-binary '{\"type\": \"note\", \"title\": \"$1\", \"body\": \"Packa...\"}'"
 #  eval $NOTIFY
