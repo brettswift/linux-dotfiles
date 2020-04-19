@@ -50,6 +50,8 @@ fsrc() {
 
 fcp() { du -a ~/src | egrep -iv ${EXCLUDE_DIRS} | awk '{print $2}' | fzf --height 80% --preview 'bat --color=always {}' --preview-window 'right:40%' | xargs cp -t ./ }
 
+alias monitor-enable='~/.config/i3/enable-disable-external-monitor.sh on'
+alias monitor-disable='~/.config/i3/enable-disable-external-monitor.sh off'
 
 alias help='bat ~/.config/help.md'
 
