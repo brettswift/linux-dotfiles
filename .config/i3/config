@@ -257,6 +257,8 @@ bindsym XF86AudioPrev exec playerctl previous
 # comment this line if resources get tight
 exec --no-startup-id "compton -b"
 
+exec --no-startup-id /usr/local/bin/clipit
+
 # ONLY for i3 gaps
 for_window [class=".*"] border pixel 0
 
