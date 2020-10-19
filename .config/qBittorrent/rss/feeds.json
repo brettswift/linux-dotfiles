@@ -1,0 +1,10 @@
+{
+    "ETTV - Movies - 4k": {
+        "uid": "{f6de8c4c-2e27-4779-aee2-ba3c98d04e1d}",
+        "url": "https://www.ettvdl.com/rss.php?cat=3&dllink=1"
+    },
+    "ETTV - TV - Sports": {
+        "uid": "{93bfc7ad-cfc6-4e63-8b18-1a3e14dddfe9}",
+        "url": "https://www.ettvdl.com/rss.php?cat=72&dllink=1"
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "SkyF1HD": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://www.ettvdl.com/rss.php?cat=72",
+            "https://www.ettvdl.com/rss.php?cat=72&dllink=1",
+            "https://www.ettvdl.com/rss.php?dllink=1",
+            "https://www.demonoid.is/rss/12.230.xml"
+        ],
+        "assignedCategory": "",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "11 Oct 2020 19:06:10 +0000",
+        "mustContain": "SkyF1HD.1080p",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "",
+        "smartFilter": false,
+        "useRegex": true
+    },
+    "don't download anything": {
+        "addPaused": null,
+        "affectedFeeds": [
+            "https://www.ettvdl.com/rss.php?cat=3&dllink=1"
+        ],
+        "assignedCategory": "",
+        "enabled": true,
+        "episodeFilter": "",
+        "ignoreDays": 0,
+        "lastMatch": "",
+        "mustContain": "asdfdasdfdawer3",
+        "mustNotContain": "",
+        "previouslyMatchedEpisodes": [
+        ],
+        "savePath": "",
+        "smartFilter": false,
+        "useRegex": true
+    }
+}
