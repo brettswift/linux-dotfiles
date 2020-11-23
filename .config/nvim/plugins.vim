@@ -27,12 +27,14 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+" Deoplete is broken  
+"Plug 'Shougo/deoplete.nvim'
 " For Denite features
 Plug 'Shougo/denite.nvim'
 
 " Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
+" Deoplete is broken  
+" let g:deoplete#enable_at_startup = 1
 " ...end typescript
 "
 call plug#end()
